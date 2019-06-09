@@ -1,0 +1,25 @@
+{
+  "name": "senzuubot",
+  "version": "1.0.0",
+  "description": "A simple bot for Senzu's awesome streamness.",
+  "main": "app.js",
+  "scripts": {
+    "build": "echo \"Building SenzuuBot\" && tsc",
+    "start": "rm -r build && echo \"Building SenzuuBot\" && tsc -w && echo \"Running SenzuuBot\" && node build/app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "loggly": "^1.1.1",
+    "moment": "^2.24.0",
+    "node-fetch": "^2.6.0",
+    "tmi.js": "^1.4.2"
+  },
+  "devDependencies": {
+    "@types/loggly": "^1.1.30",
+    "@types/moment": "^2.13.0",
+    "@types/node": "^12.0.4",
+    "@types/tmi.js": "^1.4.0"
+  }
+}

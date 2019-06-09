@@ -1,0 +1,1 @@
+{"version":3,"file":"botOptions.js","sourceRoot":"","sources":["../../src/config/botOptions.ts"],"names":[],"mappings":";;AAAA,+BAAiC;AAEpB,QAAA,UAAU,GAAG;IACxB,OAAO,EAAE,OAAO;IAChB,SAAS,EAAE,YAAY;IACvB,eAAe,EAAE,MAAM,CAAC,QAAQ,CAAC,CAAC,EAAE,SAAS,CAAC;IAC9C,oBAAoB,EAAE,wEAAwE;CAC/F,CAAC"}
