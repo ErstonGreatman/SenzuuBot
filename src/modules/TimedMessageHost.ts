@@ -15,8 +15,8 @@ export interface TimedMessage {
   messages: string[],
 };
 
-
-const streamerName = 'SenzuuBot';
+// THIS IS BAD Needs to get dynamically coded in when multi-channel support is added
+const streamerName = 'SenzuDuck';
 
 
 /**
