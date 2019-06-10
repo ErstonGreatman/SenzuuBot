@@ -73,7 +73,7 @@ export class TimedMessageHost {
 
   public getMessage = () => this.fetchMessages()
     .then((messages) =>{
-      const rng = Math.floor(Math.random() * .messages.length);
+      const rng = Math.floor(Math.random() * messages.length);
       return messages[rng];
     });
 };
