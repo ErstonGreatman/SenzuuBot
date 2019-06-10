@@ -22,10 +22,7 @@ client.on('connected', (address, port) => {
   console.log(`Connected to ${address} on port: ${port}.`);
 
   // Start Timed Message Host
-  fetch(botOptions.timedMessageEndpoint)
-  .then(response => response.json())
-  .then(data => timedMessageHost.start(data))
-  .catch(error => console.log(error));
+  timedMessageHost.start();
 });
 
 /**
