@@ -1,0 +1,30 @@
+{
+  "addons": [
+
+  ],
+  "buildpacks": [
+    {
+      "url": "heroku/nodejs"
+    }
+  ],
+  "env": {
+    "botJSONEndpoint": {
+      "required": true
+    },
+    "botPassword": {
+      "required": true
+    },
+    "botUsername": {
+      "required": true
+    }
+  },
+  "formation": {
+    "web": {
+      "quantity": 1
+    }
+  },
+  "name": "SenzuuBot",
+  "scripts": {
+  },
+  "stack": "heroku-18"
+}
