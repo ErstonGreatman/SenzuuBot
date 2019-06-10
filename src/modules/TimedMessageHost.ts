@@ -52,7 +52,8 @@ export class TimedMessageHost {
         || moment.duration(this.lastMessageTimestamp.diff(moment.now())) >= this.timedMessage.interval) {
         this.client.action(streamerName, this.getMessage());
       }
-    });
+    })
+    .catch(error => console.log(error));
   };
 
   public start = (timedMessage: TimedMessage) => {
