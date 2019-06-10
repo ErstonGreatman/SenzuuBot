@@ -52,7 +52,9 @@ export class TimedMessageHost {
         || moment.duration(this.lastMessageTimestamp.diff(moment.now())) >= this.timedMessage.interval) {
           const message = this.getMessage();
           console.log(`Sending message to #${streamerName}: ${message}`);
-        this.client.action(streamerName, message);
+          if (this.client.readyState() === 'OPEN') {
+            this.client.action(streamerName, message);
+          }
       }
     })
     .catch(error => console.log(error));
