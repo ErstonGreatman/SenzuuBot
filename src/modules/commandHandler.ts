@@ -24,7 +24,7 @@ export const commandHandler = (client: tmi.Client, timedMessageHost: TimedMessag
       client.say(channel, `version ${botOptions.version}. Errr <bzzzt> Quack quack. Ducks do not have versions.`);
       break;
     case 'testmessage':
-      client.action(channel, timedMessageHost.getMessage());
+      timedMessageHost.sendTimedMessage(channel);
       break;
   }
 };

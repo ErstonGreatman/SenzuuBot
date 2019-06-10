@@ -31,7 +31,7 @@ export class TimedMessageHost {
     },
   })
   .then(response => response.json())
-  .then(resp => !resp.data.length)  
+  .then(resp => !resp.data.length)
   .catch(error => console.log(error));
 
   private fetchMessages = () => fetch(botOptions.timedMessageEndpoint)
@@ -43,16 +43,16 @@ export class TimedMessageHost {
     })
     .catch(error => console.log(error));
 
-  private onIntervalTick = () => {
+  private onIntervalTick = async () => {
     // Check if the streamer is online
-    if (!this.isStreamerOnline()) {
+    if (!await this.isStreamerOnline()) {
       return;
     }
 
     if (!this.lastMessageTimestamp
         || Date.now() - this.lastMessageTimestamp >= this.interval * ONE_MINUTE) {
         this.lastMessageTimestamp = Date.now();
-        this.sendTimedMessage();
+        this.sendTimedMessage(streamerName);
     }
   };
 
@@ -71,9 +71,9 @@ export class TimedMessageHost {
   }
   public stop = () => clearInterval(this.poller);
 
-  public sendTimedMessage = () => this.fetchMessages()
+  public sendTimedMessage = (channel: string) => this.fetchMessages()
     .then((messages) => {
       const message = messages[Math.floor(Math.random() * messages.length)];
-      this.client.action(streamerName, message);
+      this.client.action(channel, message);
     });
 };
