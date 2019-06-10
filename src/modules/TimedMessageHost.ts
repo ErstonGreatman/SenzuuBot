@@ -7,7 +7,7 @@ import { ONE_MINUTE } from '../consts';
 
 
 // THIS IS BAD Needs to get dynamically coded in when multi-channel support is added
-const streamerName = 'SenzuDuck';
+const streamerName = process.env.BOT_CHANNELS;
 
 
 /**
@@ -52,7 +52,7 @@ export class TimedMessageHost {
     if (!this.lastMessageTimestamp
         || Date.now() - this.lastMessageTimestamp >= this.interval * ONE_MINUTE) {
         this.lastMessageTimestamp = Date.now();
-        this.sendTimedMessage(streamerName);
+        this.sendTimedMessage(streamerName!);
     }
   };
 
