@@ -31,7 +31,7 @@ export class TimedMessageHost {
     },
   })
   .then(response => response.json())
-  .then(resp => !resp.data.length)
+  .then(resp => resp.data.length)
   .catch(error => console.log(error));
 
   private fetchMessages = () => fetch(botOptions.timedMessageEndpoint)
