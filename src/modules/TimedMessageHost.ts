@@ -52,7 +52,7 @@ export class TimedMessageHost {
     if (!this.lastMessageTimestamp
         || Date.now() - this.lastMessageTimestamp >= this.interval * ONE_MINUTE) {
         this.lastMessageTimestamp = Date.now();
-        this.client.action(streamerName, this.getMessage());
+        this.sendTimedMessage();
     }
   };
 
@@ -71,9 +71,9 @@ export class TimedMessageHost {
   }
   public stop = () => clearInterval(this.poller);
 
-  public getMessage = () => this.fetchMessages()
-    .then((messages) =>{
-      const rng = Math.floor(Math.random() * messages.length);
-      return messages[rng];
+  public sendTimedMessage = () => this.fetchMessages()
+    .then((messages) => {
+      const message = messages[Math.floor(Math.random() * messages.length)];
+      this.client.action(streamerName, message);
     });
 };
