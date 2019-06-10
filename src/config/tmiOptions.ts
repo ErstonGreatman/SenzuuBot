@@ -4,7 +4,7 @@ import { stringToArray } from '../utils';
 
 export const tmiOptions: Options = {
   options: {
-    debug: true,
+    debug: process.env.NODE_ENV === 'development' ? true : false,
   },
   connection: {
     reconnect: true,

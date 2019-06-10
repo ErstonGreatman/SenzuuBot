@@ -11,6 +11,7 @@ import fetch = require('node-fetch');
 /**
  * Startup
  */
+console.log(`Starting in ${process.env.NODE_ENV}`);
 const client = tmi.client(tmiOptions);
 const timedMessageHost = new TimedMessageHost(client);
 
