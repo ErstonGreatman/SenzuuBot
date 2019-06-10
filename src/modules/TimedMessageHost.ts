@@ -50,7 +50,9 @@ export class TimedMessageHost {
       // Check for duration between last post and current time
       if (!this.lastMessageTimestamp
         || moment.duration(this.lastMessageTimestamp.diff(moment.now())) >= this.timedMessage.interval) {
-        this.client.action(streamerName, this.getMessage());
+          const message = this.getMessage();
+          console.log(`Sending message to #${streamerName}: ${message}`);
+        this.client.action(streamerName, message);
       }
     })
     .catch(error => console.log(error));
