@@ -54,6 +54,8 @@ export class TimedMessageHost {
           console.log(`Sending message to #${streamerName}: ${message}`);
           if (this.client.readyState() === 'OPEN') {
             this.client.action(streamerName, message);
+          } else {
+            console.log('ERROR: Tried to send a message, but not connected.');
           }
       }
     })
