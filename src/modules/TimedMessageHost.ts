@@ -1,9 +1,9 @@
-import * as moment from 'moment';
 import * as tmi from 'tmi.js';
 
 import { botOptions } from '../config/botOptions';
 
 import fetch = require('node-fetch');
+import { ONE_MINUTE } from '../consts';
 
 
 /**
@@ -11,7 +11,7 @@ import fetch = require('node-fetch');
  * The model for messages displayed on a timed basis, provided by a JSON file hosted on JSONbin.io
  */
 export interface TimedMessage {
-  interval: moment.Duration,
+  interval: number,
   messages: string[],
 };
 
@@ -27,7 +27,7 @@ export class TimedMessageHost {
   private client: tmi.Client;
   private poller: NodeJS.Timeout;
   private timedMessage: TimedMessage;
-  private lastMessageTimestamp: moment.Moment;
+  private lastMessageTimestamp: number;
 
 
   public constructor (client: tmi.Client) {
@@ -47,9 +47,9 @@ export class TimedMessageHost {
         return;
       }
 
-      // Check for duration between last post and current time
       if (!this.lastMessageTimestamp
-        || moment.duration(this.lastMessageTimestamp.diff(moment.now())) >= this.timedMessage.interval) {
+         || Date.now() - this.lastMessageTimestamp >= this.timedMessage.interval * ONE_MINUTE) {
+          this.lastMessageTimestamp = Date.now();
           this.client.action(streamerName, this.getMessage());
       }
     })
@@ -60,7 +60,7 @@ export class TimedMessageHost {
     this.timedMessage = timedMessage;
     console.log(timedMessage);
     
-    this.poller = setInterval(this.onIntervalTick, botOptions.pollingInterval.asMilliseconds());
+    this.poller = setInterval(this.onIntervalTick, botOptions.pollingInterval);
   }
   public stop = () => clearInterval(this.poller);
 

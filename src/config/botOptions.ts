@@ -1,8 +1,8 @@
-import * as moment from 'moment';
+import { ONE_MINUTE } from '../consts';
 
 export const botOptions = {
   version: '1.0.0',
   cmdPrefix: '!senzuubot',
-  pollingInterval: moment.duration(1, 'minutes'),
+  pollingInterval: ONE_MINUTE,
   timedMessageEndpoint: process.env.TIMED_MESSAGES_ENDPOINT,
 };
