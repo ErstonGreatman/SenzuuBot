@@ -4,9 +4,14 @@
   "description": "A simple bot for Senzu's awesome streamness.",
   "main": "app.js",
   "scripts": {
-    "build": "echo \"Building SenzuuBot\" && tsc",
-    "start": "rm -r build && echo \"Building SenzuuBot\" && tsc -w && echo \"Running SenzuuBot\" && node build/app.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "ts:watch": "tsc -w",
+    "ts:build": "tsc",
+    "serve": "nodemon build/app.js",
+    "watch": "concurrently \"npm run ts:watch\" \"npm run serve\"",
+    "build": "npm run ts:build",
+    "prod:serve": "node build/app.js",
+    "start": "npm run build && npm run prod:serve",
+    "tslint": "tslint -c tslint.json -p tsconfig.json"
   },
   "author": "",
   "license": "ISC",
@@ -14,12 +19,21 @@
     "loggly": "^1.1.1",
     "moment": "^2.24.0",
     "node-fetch": "^2.6.0",
-    "tmi.js": "^1.4.2"
+    "tmi.js": "^1.4.2",
+    "typescript": "^3.5.1"
   },
   "devDependencies": {
     "@types/loggly": "^1.1.30",
     "@types/moment": "^2.13.0",
     "@types/node": "^12.0.4",
-    "@types/tmi.js": "^1.4.0"
+    "@types/tmi.js": "^1.4.0",
+    "concurrently": "^4.1.0",
+    "nodemon": "^1.19.1",
+    "tslint": "^5.17.0",
+    "tslint-config-prettier": "^1.18.0"
+  },
+  "engines": {
+    "node": "10.14.2",
+    "npm": "6.4.1"
   }
 }

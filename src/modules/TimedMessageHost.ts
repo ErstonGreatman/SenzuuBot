@@ -3,8 +3,7 @@ import * as tmi from 'tmi.js';
 
 import { botOptions } from '../config/botOptions';
 
-
-const fetch = require('node-fetch');
+import fetch = require('node-fetch');
 
 
 /**

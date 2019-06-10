@@ -1,6 +1,6 @@
 export const tmiIdentity = {
-  username: 'Twitch Account name for bot here',
-  password: 'oauth key provided by https://twitchapps.com/tmi/',
+  username: 'Senzuubot',
+  password: 'oauth:e2gpzgdcq7iryrv9c1gluswfnwm9mq',
 };
 
-export const botJSONEndpoint = 'endpoint from where the bot JSON is coming from. Should be a get that returns the JSON';
+export const botJSONEndpoint = 'https://jsonblob.com/api/jsonBlob/7550b689-875e-11e9-b0b4-11053ae0f59a';

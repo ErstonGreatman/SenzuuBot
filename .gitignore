@@ -1,2 +1,3 @@
 build/
 src/config/sensitiveInfo.ts
+node_modules

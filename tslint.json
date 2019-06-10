@@ -1,0 +1,30 @@
+{
+  "extends": [
+    "tslint:recommended",
+    "tslint-config-prettier"
+  ],
+  "rules": {
+    "interface-over-type-literal": false,
+    "interface-name": false,
+    "no-console": false,
+    "ordered-imports": false,
+    "no-unused-expression": false,
+    "object-literal-sort-keys": false,
+    "no-empty": false,
+    "object-literal-shorthand": false,
+    "no-bitwise": false,
+    "only-arrow-functions": [
+      true,
+      "allow-declarations",
+      "allow-named-functions"
+    ],
+    "member-ordering": [
+      false
+    ]
+  },
+  "linterOptions": {
+    "exclude": [
+      "node_modules/**/*.ts"
+    ]
+  }
+}

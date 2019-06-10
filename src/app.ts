@@ -5,8 +5,7 @@ import { tmiOptions } from './config/tmiOptions';
 import { TimedMessageHost } from './modules/TimedMessageHost';
 import { botOptions } from './config/botOptions';
 
-
-const fetch = require('node-fetch');
+import fetch = require('node-fetch');
 
 
 /**
