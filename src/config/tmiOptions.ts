@@ -10,8 +10,8 @@ export const tmiOptions: Options = {
     reconnect: true,
   },
   identity: {
-    username: process.env.botUsername,
-    password: process.env.botPassword
+    username: process.env.BOT_USERNAME,
+    password: process.env.BOT_PASSWORD
   },
   channels: stringToArray(process.env.BOT_CHANNELS as string),
   logger: logglyLogger(),

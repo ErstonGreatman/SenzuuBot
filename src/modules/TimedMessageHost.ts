@@ -50,13 +50,7 @@ export class TimedMessageHost {
       // Check for duration between last post and current time
       if (!this.lastMessageTimestamp
         || moment.duration(this.lastMessageTimestamp.diff(moment.now())) >= this.timedMessage.interval) {
-          const message = this.getMessage();
-          console.log(`Sending message to #${streamerName}: ${message}`);
-          if (this.client.readyState() === 'OPEN') {
-            this.client.action(streamerName, message);
-          } else {
-            console.log('ERROR: Tried to send a message, but not connected.');
-          }
+          this.client.action(streamerName, this.getMessage());
       }
     })
     .catch(error => console.log(error));
@@ -72,7 +66,6 @@ export class TimedMessageHost {
 
   public getMessage = () => {
     const rng = Math.floor(Math.random() * this.timedMessage.messages.length);
-    console.log(rng);
     return this.timedMessage.messages[rng];
   };
 };
