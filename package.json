@@ -16,6 +16,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "dotenv": "^8.0.0",
     "loggly": "^1.1.1",
     "moment": "^2.24.0",
     "node-fetch": "^2.6.0",

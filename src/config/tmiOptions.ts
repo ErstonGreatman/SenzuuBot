@@ -1,6 +1,6 @@
 import { logglyLogger } from './logger';
 import { Options } from 'tmi.js';
-import { tmiIdentity } from './sensitiveInfo';
+import { stringToArray } from '../utils';
 
 export const tmiOptions: Options = {
   options: {
@@ -9,7 +9,10 @@ export const tmiOptions: Options = {
   connection: {
     reconnect: true,
   },
-  identity: tmiIdentity,
-  channels: ['SenzuuBot'],
+  identity: {
+    username: process.env.botUsername,
+    password: process.env.botPassword
+  },
+  channels: stringToArray(process.env.BOT_CHANNELS as string),
   logger: logglyLogger(),
 };
