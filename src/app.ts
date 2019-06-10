@@ -3,9 +3,6 @@ import * as tmi from 'tmi.js';
 import { commandHandler } from './modules/commandHandler';
 import { tmiOptions } from './config/tmiOptions';
 import { TimedMessageHost } from './modules/TimedMessageHost';
-import { botOptions } from './config/botOptions';
-
-import fetch = require('node-fetch');
 
 
 /**
