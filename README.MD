@@ -1,6 +1,6 @@
 # SenzuuBot - A Twitch Chat Bot for SenzuDuck
 
-A bot develop for <https://www.twitch.tv/SenzuDuck>. It's really new. Lots to potentially build on.
+A bot developed for <https://www.twitch.tv/SenzuDuck>. It's really new. Lots to potentially build on.
 
 ## Technology
 
