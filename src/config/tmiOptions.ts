@@ -1,6 +1,9 @@
 import { logglyLogger } from './logger';
 import { Options } from 'tmi.js';
 import { stringToArray } from '../utils';
+import * as dotenv from 'dotenv';
+
+dotenv.config();
 
 export const tmiOptions: Options = {
   options: {
@@ -8,10 +11,11 @@ export const tmiOptions: Options = {
   },
   connection: {
     reconnect: true,
+    secure: true,
   },
   identity: {
     username: process.env.BOT_ACCOUNT_USERNAME,
-    password: process.env.BOT_ACCOUNT_PASSWORD
+    password: process.env.BOT_ACCOUNT_PASSWORD,
   },
   channels: stringToArray(process.env.BOT_CHANNELS as string),
   logger: logglyLogger(),
