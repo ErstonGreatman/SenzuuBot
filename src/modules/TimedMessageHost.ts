@@ -7,7 +7,7 @@ import { ONE_MINUTE } from '../consts';
 
 
 // THIS IS BAD Needs to get dynamically coded in when multi-channel support is added
-const streamerName = 'SenzuDuck';
+const streamerName = process.env.BOT_CHANNELS;
 
 
 /**
@@ -31,7 +31,7 @@ export class TimedMessageHost {
     },
   })
   .then(response => response.json())
-  .then(resp => resp.data.length)
+  .then(resp => { console.log(resp.data); return resp.data.length; })
   .catch(error => console.log(error));
 
   private fetchMessages = () => fetch(botOptions.timedMessageEndpoint)
@@ -52,7 +52,7 @@ export class TimedMessageHost {
     if (!this.lastMessageTimestamp
         || Date.now() - this.lastMessageTimestamp >= this.interval * ONE_MINUTE) {
         this.lastMessageTimestamp = Date.now();
-        this.sendTimedMessage(streamerName);
+        this.sendTimedMessage(streamerName!);
     }
   };
 
@@ -64,7 +64,7 @@ export class TimedMessageHost {
     .then(data => {
       this.interval = data.interval;
       console.log(data);
-    
+
       this.poller = setInterval(this.onIntervalTick, botOptions.pollingInterval);
     })
     .catch(error => console.log(error));
