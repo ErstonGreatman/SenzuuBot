@@ -29,6 +29,9 @@ BOT_ACCOUNT_PASSWORD = "The OAuth token from https://twitchapps.com/tmi/"
 TIMED_MESSAGES_ENDPOINT = "Wherever you're storing your JSON"
 BOT_CHANNELS = "Comma-separated list of channels this bot should be join when connected"
 TWITCH_API_CLIENT_ID = "Client-ID used when reaching out to the Twitch API from registering an app at https://dev.twitch.tv/"
+TWITCH_API_CLIENT_SECRET = "Your bot's client secret for getting an OAuth tokenf rom the Twitch API"
+TWITCH_OAUTH_ENDPOINT = "The Twitch OAuth endpoint. As of last update: https://id.twitch.tv/oauth2/token"
+TWITCH_API_ENDPOINT = "Twitch API endpoint. As of last update: https://api.twitch.tv/helix/streams"
 ```
 
 4. Do the usual `npm install`
