@@ -31,7 +31,7 @@ export class TimedMessageHost {
     },
   })
   .then(response => response.json())
-  .then(resp => resp.data.length)
+  .then(resp => { console.log(resp.data); return resp.data.length; })
   .catch(error => console.log(error));
 
   private fetchMessages = () => fetch(botOptions.timedMessageEndpoint)
@@ -64,7 +64,7 @@ export class TimedMessageHost {
     .then(data => {
       this.interval = data.interval;
       console.log(data);
-    
+
       this.poller = setInterval(this.onIntervalTick, botOptions.pollingInterval);
     })
     .catch(error => console.log(error));
