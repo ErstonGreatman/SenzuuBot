@@ -12,7 +12,7 @@ This is a Node.JS app with TypeScript. Why TypeScript? I likes it.
 - There's a command parser but it doesn't really do anything right now outside of debugging stuffs so it's disabled
 - That's... pretty much it
 
-## Setup
+## Setup 
 
 ### STILL WRITING THIS OUT
 
